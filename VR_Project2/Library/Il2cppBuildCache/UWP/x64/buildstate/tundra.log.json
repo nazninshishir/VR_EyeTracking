@@ -1,0 +1,5 @@
+{"msg":"init","dagFile":"C:/Users/naznin.shishir1/VR_Project2/Library/Il2cppBuildCache/UWP/x64/buildstate/bee.dag","targets":["FinalProgram"]}
+{"msg":"enqueueNode","enqueuedNodeAnnotation":"FinalProgram","enqueuedNodeIndex":2}
+{"msg":"enqueueNode","enqueuedNodeAnnotation":"IL2CPP_CodeGen C:/Users/naznin.shishir1/VR_Project2/Library/Il2cppBuildCache/UWP/x64/buildstate/artifacts/il2cpp_conv_onq0.traceevents","enqueuedNodeIndex":1,"enqueueingNodeAnnotation":"FinalProgram","enqueueingNodeIndex":2}
+{"msg":"newNode","annotation":"FinalProgram","index":2}
+{"msg":"runNodeAction","annotation":"FinalProgram","index":2}
