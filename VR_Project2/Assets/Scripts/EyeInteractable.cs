@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,46 +8,83 @@ using UnityEngine.Events;
 
 public class EyeInteractable : MonoBehaviour
 {
-    
-    public bool IsHovered { get; set; }
+    [field: SerializeField]
+    public bool IsHovered { get; private set; }
 
-   
+    [field: SerializeField]
+    public bool IsSelected { get; private set; }
+
 
     [SerializeField]
     private UnityEvent<GameObject> OnObjectHover;
 
-    
+    [SerializeField]
+    private UnityEvent<GameObject> OnObjectSelect;
+
+
 
     [SerializeField]
     private Material OnHoverActiveMaterial;
 
     [SerializeField]
-    private Material OnHoverInActiveMaterial;
+    private Material OnSelectActiveMaterial;
+
+    [SerializeField]
+    private Material OnIdleMaterial;
 
     
 
     private MeshRenderer meshRenderer;
 
-    
+    private Transform originalAnchor;
 
-    void Start() => meshRenderer = GetComponent<MeshRenderer>();
+    private TextMeshPro statusText;
 
 
-   
 
-    void Update()
+    private void Start()
+    {
+        meshRenderer = GetComponent<MeshRenderer>();
+        statusText = GetComponentInChildren<TextMeshPro>();
+        originalAnchor = transform.parent;
+
+    }
+
+    public void Hover(bool state)
+    {
+        IsHovered = state;
+    }
+
+    public void Select(bool state, Transform anchor = null)
+    {
+        IsSelected = state;
+        if (anchor) transform.SetParent(anchor);
+        if (!IsSelected) transform.SetParent(originalAnchor);
+    }
+
+
+    private void Update()
     {
         if(IsHovered)
         {
-            
-            meshRenderer.material = OnHoverActiveMaterial;
+                  
             OnObjectHover?.Invoke(gameObject);
+            meshRenderer.material = OnHoverActiveMaterial;
+            statusText.text = $"<color=\"yellow\">HOVERED</color>";
             
         }
-        else
+        if(IsSelected)
         {
-            meshRenderer.material = OnHoverInActiveMaterial;
+            OnObjectSelect?.Invoke(gameObject);
+            meshRenderer.material = OnSelectActiveMaterial;
+            statusText.text = $"<color=\"yellow\">SELECTED</color>";
         }
-      
+        if (!IsHovered && !IsSelected)
+        {
+
+            meshRenderer.material = OnIdleMaterial;
+            statusText.text = $"<color=\"yellow\">IDLE</color>";
+        }
+
     }
 }

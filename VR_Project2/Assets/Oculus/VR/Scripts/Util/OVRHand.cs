@@ -164,6 +164,11 @@ public class OVRHand : MonoBehaviour,
         return TrackingConfidence.Low;
     }
 
+    public OVRInput.Controller GetController()
+    {
+        throw new NotImplementedException();
+    }
+
     OVRSkeleton.SkeletonType OVRSkeleton.IOVRSkeletonDataProvider.GetSkeletonType()
     {
         switch (HandType)
