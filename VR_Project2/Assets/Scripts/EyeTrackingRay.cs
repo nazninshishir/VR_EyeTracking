@@ -24,7 +24,7 @@ public class EyeTrackingRay : MonoBehaviour
     private OVRHand handUsedForPinchSelection;
 
     [SerializeField]
-    private bool mockhandUsedForPinchSelection;
+    private OVRHand mockhandUsedForPinchSelection;
 
     private bool intercepting;
 
