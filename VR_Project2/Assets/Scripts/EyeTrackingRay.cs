@@ -79,6 +79,7 @@ public class EyeTrackingRay : MonoBehaviour
         else
         {
             lastEyeInteractable?.Select(false);
+            interactables.Clear();
         }
     }
 

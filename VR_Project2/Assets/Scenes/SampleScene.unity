@@ -492,7 +492,7 @@ MonoBehaviour:
   rayColorDefaultState: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   rayColorHoverState: {r: 1, g: 0, b: 0, a: 1}
   handUsedForPinchSelection: {fileID: 1912183741}
-  mockhandUsedForPinchSelection: 0
+  mockhandUsedForPinchSelection: {fileID: 0}
 --- !u!114 &1912183741 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4042673220648894827, guid: d93b7e04b48cd7b4fa849695dba2ce9c,
