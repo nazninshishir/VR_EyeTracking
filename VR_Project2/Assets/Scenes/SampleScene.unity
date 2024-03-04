@@ -147,6 +147,11 @@ PrefabInstance:
       propertyPath: OnSelectActiveMaterial
       value: 
       objectReference: {fileID: 2100000, guid: c61a55dba6ed64c4f8e865f32677062f, type: 2}
+    - target: {fileID: 4816644536626082118, guid: 066cca675525d5446bc48dca0e027d95,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8187814640192961473, guid: 066cca675525d5446bc48dca0e027d95,
         type: 3}
       propertyPath: m_RootOrder
@@ -320,6 +325,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1924786182333430260, guid: 847aed396796ea148ac792d66ee5b051,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3012600780420920179, guid: 847aed396796ea148ac792d66ee5b051,
         type: 3}
       propertyPath: m_RootOrder
@@ -740,6 +750,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1924786182333430260, guid: 847aed396796ea148ac792d66ee5b051,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3012600780420920179, guid: 847aed396796ea148ac792d66ee5b051,
         type: 3}
       propertyPath: m_RootOrder
@@ -824,6 +839,11 @@ PrefabInstance:
       propertyPath: OnSelectActiveMaterial
       value: 
       objectReference: {fileID: 2100000, guid: c61a55dba6ed64c4f8e865f32677062f, type: 2}
+    - target: {fileID: 4816644536626082118, guid: 066cca675525d5446bc48dca0e027d95,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8187814640192961473, guid: 066cca675525d5446bc48dca0e027d95,
         type: 3}
       propertyPath: m_RootOrder
@@ -957,6 +977,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758325334177141354, guid: e6e20204b7348044a9a05b33b3aa1dcb,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6e20204b7348044a9a05b33b3aa1dcb, type: 3}

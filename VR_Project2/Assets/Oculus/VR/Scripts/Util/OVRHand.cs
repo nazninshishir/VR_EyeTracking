@@ -135,6 +135,11 @@ public class OVRHand : MonoBehaviour,
         }
     }
 
+    public bool GetHandState(HandFinger index)
+    {
+        throw new NotImplementedException();
+    }
+
     public bool GetFingerIsPinching(HandFinger finger)
     {
         return IsDataValid && (((int)_handState.Pinches & (1 << (int)finger)) != 0);

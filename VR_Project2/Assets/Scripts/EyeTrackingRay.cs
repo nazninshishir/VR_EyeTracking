@@ -74,7 +74,30 @@ public class EyeTrackingRay : MonoBehaviour
     {
         if (IsPinching())
         {
-            lastEyeInteractable?.Select(true, (handUsedForPinchSelection?.IsTracked ?? false) ? handUsedForPinchSelection.transform : transform);
+            if (lastEyeInteractable != null)
+            {
+                // Move the selected object to the hand's position
+                Rigidbody interactableRigidbody = lastEyeInteractable.GetComponent<Rigidbody>();
+
+                if (interactableRigidbody != null)
+                {
+                    Vector3 targetPosition = (handUsedForPinchSelection?.IsTracked ?? false)
+                        ? handUsedForPinchSelection.transform.position
+                        : transform.position;
+
+                    // Calculate the direction towards the hand
+                    Vector3 directionToHand = (targetPosition - interactableRigidbody.position);
+
+                    // Translate the object towards the hand
+                    interactableRigidbody.transform.Translate(directionToHand, Space.World);
+                }
+
+                Transform anchorTransform = (handUsedForPinchSelection != null && handUsedForPinchSelection.IsTracked)
+                    ? handUsedForPinchSelection.transform
+                    : transform;
+
+                lastEyeInteractable.Select(true, anchorTransform);
+            }
         }
         else
         {
@@ -116,5 +139,5 @@ public class EyeTrackingRay : MonoBehaviour
     }
     private void OnDestroy() => interactables.Clear();
 
-    private bool IsPinching() => (allowPinchSelection && handUsedForPinchSelection.GetFingerIsPinching(OVRHand.HandFinger.Index)) || mockhandUsedForPinchSelection;
+    private bool IsPinching() => (allowPinchSelection && handUsedForPinchSelection.GetFingerIsPinching(OVRHand.HandFinger.Index) && handUsedForPinchSelection.GetFingerPinchStrength(OVRHand.HandFinger.Index) > 0.5f);
 }
