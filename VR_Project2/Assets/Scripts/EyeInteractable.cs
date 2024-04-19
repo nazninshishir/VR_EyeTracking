@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -32,20 +31,20 @@ public class EyeInteractable : MonoBehaviour
     [SerializeField]
     private Material OnIdleMaterial;
 
-    
+
 
     private MeshRenderer meshRenderer;
 
     private Transform originalAnchor;
 
-    private TextMeshPro statusText;
+    
 
 
 
     private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
-        statusText = GetComponentInChildren<TextMeshPro>();
+        
         originalAnchor = transform.parent;
 
     }
@@ -65,25 +64,25 @@ public class EyeInteractable : MonoBehaviour
 
     private void Update()
     {
-        if(IsHovered)
+        if (IsHovered)
         {
-                  
+
             OnObjectHover?.Invoke(gameObject);
             meshRenderer.material = OnHoverActiveMaterial;
-            statusText.text = $"<color=\"yellow\">HOVERED</color>";
             
+
         }
-        if(IsSelected)
+        if (IsSelected)
         {
             OnObjectSelect?.Invoke(gameObject);
             meshRenderer.material = OnSelectActiveMaterial;
-            statusText.text = $"<color=\"yellow\">SELECTED</color>";
+            
         }
         if (!IsHovered && !IsSelected)
         {
 
             meshRenderer.material = OnIdleMaterial;
-            statusText.text = $"<color=\"yellow\">IDLE</color>";
+            
         }
 
     }
