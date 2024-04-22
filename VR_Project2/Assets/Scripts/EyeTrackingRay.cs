@@ -1,5 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using UnityEditor;
+
 
 [RequireComponent(typeof(LineRenderer))]
 
@@ -36,14 +39,29 @@ public class EyeTrackingRay : MonoBehaviour
 
     private EyeInteractable lastEyeInteractable;
 
+    private float grabTime;
+
+    private Vector3 previousPosition; // Variable to store the previous position of the object
+    private bool isObjectMoved = false;
+
+
+
+
+
     void Start()
     {
+        
         lineRenderer = GetComponent<LineRenderer>();
         allowPinchSelection = handUsedForPinchSelection != null;
         SetupRay();
+        previousPosition = Vector3.zero;
+
 
 
     }
+    
+
+
 
     void SetupRay()
     {
@@ -90,6 +108,14 @@ public class EyeTrackingRay : MonoBehaviour
 
                     // Translate the object towards the hand
                     interactableRigidbody.transform.Translate(directionToHand, Space.World);
+
+                    if (!isObjectMoved && interactableRigidbody.position != previousPosition)
+                    {
+                        grabTime = Time.time;
+                        RecordGrabbedObject(lastEyeInteractable.gameObject.name, grabTime);
+                        isObjectMoved = true; // Set the flag to indicate the object has moved
+                    }
+                    previousPosition = interactableRigidbody.position;
                 }
 
                 Transform anchorTransform = (handUsedForPinchSelection != null && handUsedForPinchSelection.IsTracked)
@@ -97,10 +123,12 @@ public class EyeTrackingRay : MonoBehaviour
                     : transform;
 
                 lastEyeInteractable.Select(true, anchorTransform);
+                
             }
         }
         else
         {
+            isObjectMoved = false;
             lastEyeInteractable?.Select(false);
             interactables.Clear();
         }
@@ -132,6 +160,32 @@ public class EyeTrackingRay : MonoBehaviour
             eyeInteractable.Hover(true);
             lastEyeInteractable = eyeInteractable;
         }
+    }
+
+    private void RecordGrabbedObject(string objectName, float grabTime)
+    {
+        // Format the data as a string
+        string data = objectName + "," + grabTime.ToString("F2");
+
+        // Define the file path outside of the project directory
+        string filePath = Path.Combine(Application.persistentDataPath, "grabbed_objects.txt");
+
+        // Check if the file exists, if not, create it and add a header
+        if (!File.Exists(filePath))
+        {
+            using (StreamWriter writer = File.CreateText(filePath))
+            {
+                writer.WriteLine("Object Name,Grab Time (ms)");
+            }
+        }
+
+        // Append the data to the file
+        using (StreamWriter writer = File.AppendText(filePath))
+        {
+            writer.WriteLine(data);
+        }
+
+        Debug.Log("Object grabbed: " + objectName + " at time: " + grabTime.ToString("F2") + " milliseconds. Data saved to file.");
     }
     private void OnHoverEnded()
     {

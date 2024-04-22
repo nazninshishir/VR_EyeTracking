@@ -711,6 +711,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 713704074987961807, guid: dcefd30573c1e2141873940c04e20179,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Instruction
+
+        Use your eye raycast to selet specific object
+        as per instructions.  After selecting, use your bare hand grab posture to
+        grab it.'
+      objectReference: {fileID: 0}
     - target: {fileID: 3401342830462623255, guid: dcefd30573c1e2141873940c04e20179,
         type: 3}
       propertyPath: m_Name

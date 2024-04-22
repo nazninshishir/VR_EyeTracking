@@ -327,7 +327,7 @@ PrefabInstance:
     - target: {fileID: 8452508975296200144, guid: dcefd30573c1e2141873940c04e20179,
         type: 3}
       propertyPath: m_Text
-      value: NEXT
+      value: COMPLETE
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7584431599605449027, guid: dcefd30573c1e2141873940c04e20179, type: 3}

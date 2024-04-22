@@ -181,8 +181,8 @@ PrefabInstance:
       propertyPath: m_Text
       value: 'Instruction
 
-        Use your eye tracking raycast to select the pink
-        cube. After selecting, use your bare hand grab posture to grab it.'
+        Use your eye raycast to select the pink cube.
+        After selecting, use your bare hand grab posture to grab it.'
       objectReference: {fileID: 0}
     - target: {fileID: 1649728680295435016, guid: dcefd30573c1e2141873940c04e20179,
         type: 3}
@@ -332,7 +332,7 @@ PrefabInstance:
     - target: {fileID: 8452508975296200144, guid: dcefd30573c1e2141873940c04e20179,
         type: 3}
       propertyPath: m_Text
-      value: NEXT
+      value: COMPLETE
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7584431599605449027, guid: dcefd30573c1e2141873940c04e20179, type: 3}

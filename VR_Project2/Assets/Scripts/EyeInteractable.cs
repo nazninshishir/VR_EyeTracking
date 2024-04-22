@@ -37,9 +37,12 @@ public class EyeInteractable : MonoBehaviour
 
     private Transform originalAnchor;
 
-    
 
 
+    public string ObjectName
+    {
+        get { return gameObject.name; }
+    }
 
     private void Start()
     {
