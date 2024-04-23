@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEditor;
-
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(LineRenderer))]
 
@@ -39,10 +39,14 @@ public class EyeTrackingRay : MonoBehaviour
 
     private EyeInteractable lastEyeInteractable;
 
-    private float grabTime;
+    private float grabTime = 0f;
 
     private Vector3 previousPosition; // Variable to store the previous position of the object
     private bool isObjectMoved = false;
+
+    private float sceneStartTime = 0f;
+
+
 
 
 
@@ -50,7 +54,8 @@ public class EyeTrackingRay : MonoBehaviour
 
     void Start()
     {
-        
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
         lineRenderer = GetComponent<LineRenderer>();
         allowPinchSelection = handUsedForPinchSelection != null;
         SetupRay();
@@ -59,7 +64,16 @@ public class EyeTrackingRay : MonoBehaviour
 
 
     }
-    
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("Scene loaded: " + scene.name);
+        // Reset time when a new scene is loaded
+        grabTime = 0f;
+        
+        isObjectMoved = false;
+        sceneStartTime = Time.time;
+    }
+
 
 
 
@@ -164,18 +178,21 @@ public class EyeTrackingRay : MonoBehaviour
 
     private void RecordGrabbedObject(string objectName, float grabTime)
     {
+        string sceneName = SceneManager.GetActiveScene().name;
         // Format the data as a string
-        string data = objectName + "," + grabTime.ToString("F2");
+        string data = sceneName + "," + sceneStartTime.ToString("F2") + "," + objectName + "," + grabTime.ToString("F2");
+
+        
 
         // Define the file path outside of the project directory
-        string filePath = Path.Combine(Application.persistentDataPath, "grabbed_objects.txt");
+        string filePath = Path.Combine(Application.persistentDataPath, sceneName + "_grabbed_objects.txt");
 
         // Check if the file exists, if not, create it and add a header
         if (!File.Exists(filePath))
         {
             using (StreamWriter writer = File.CreateText(filePath))
             {
-                writer.WriteLine("Object Name,Grab Time (ms)");
+                writer.WriteLine("Scene Name,Scene Start Time (ms), Object Name,Grab Time (ms)");
             }
         }
 
