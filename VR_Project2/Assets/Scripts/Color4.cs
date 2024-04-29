@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Color4 : MonoBehaviour
 {
-    public void StartButton()
+    void Update()
     {
-        SceneManager.LoadScene("Color4");
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("Color4");
+        }
     }
 }
