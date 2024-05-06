@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 1e4494172e2546e42846e45b41892a0a
   - enabled: 1
-    path: Assets/Scenes/Color.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
     path: Assets/Scenes/Color1.unity
     guid: e4014c6a81f7a84428f311002b087163
   - enabled: 1
@@ -19,16 +16,43 @@ EditorBuildSettings:
     guid: e5d13227405dc9e4c985cc38de27d173
   - enabled: 1
     path: Assets/Scenes/Color3.unity
-    guid: 712c0c838303bc348988e5c93da11f06
+    guid: d6658e9e12ab56e469115ca204a41ea4
   - enabled: 1
     path: Assets/Scenes/Color4.unity
     guid: 3bc9e2c4dc270ce49b2ac3ac0a7f8bba
   - enabled: 1
-    path: Assets/Scenes/Size.unity
-    guid: db10cff201de92348bcd43002183fbf6
+    path: Assets/Scenes/Color5.unity
+    guid: e26f5668c88ef8b4fbcf3a51136e8603
   - enabled: 1
-    path: Assets/Scenes/Shape.unity
-    guid: 9cc3dc2690195e84982f5e3ed8980884
+    path: Assets/Scenes/Size1.unity
+    guid: 46d5867513ef73a4e9e65a92215eef1f
+  - enabled: 1
+    path: Assets/Scenes/Size2.unity
+    guid: 744f28a53397cfe41ae984242317d688
+  - enabled: 1
+    path: Assets/Scenes/Size3.unity
+    guid: cbd2e6b45331a4049b5111c15d1745eb
+  - enabled: 1
+    path: Assets/Scenes/Size4.unity
+    guid: 0b3b8ea1f0a7b4d4896e8e243bf990bd
+  - enabled: 1
+    path: Assets/Scenes/Size5.unity
+    guid: 75b9206bc2f971b479c4fad65b29bfcb
+  - enabled: 1
+    path: Assets/Scenes/Shape1.unity
+    guid: e86c7fe2c8df6a64cac92dda40732d18
+  - enabled: 1
+    path: Assets/Scenes/Shape2.unity
+    guid: 91e144dd361cfac44b2d17e9691d0962
+  - enabled: 1
+    path: Assets/Scenes/Shape3.unity
+    guid: dad2b8193db492b419ccb4088b3b19ad
+  - enabled: 1
+    path: Assets/Scenes/Shape4.unity
+    guid: 135c215b9e0e75f4884aab8b6b18a075
+  - enabled: 1
+    path: Assets/Scenes/Shape5.unity
+    guid: 5d07d695f37e7ac48a96160a5c382487
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}
