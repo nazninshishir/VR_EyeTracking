@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuController : MonoBehaviour
+public class EndMenu : MonoBehaviour
 {
-    public void StartButton()
+    void Update()
     {
-        SceneManager.LoadScene("Color");
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("EndMenu");
+        }
     }
 }

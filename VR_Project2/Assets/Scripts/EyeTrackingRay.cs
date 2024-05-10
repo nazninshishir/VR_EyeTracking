@@ -18,10 +18,10 @@ public class EyeTrackingRay : MonoBehaviour
     private LayerMask layersToInclude;
 
     [SerializeField]
-    private Color rayColorDefaultState = Color.yellow;
+    private Color rayColorDefaultState = Color.clear;
 
     [SerializeField]
-    private Color rayColorHoverState = Color.red;
+    private Color rayColorHoverState = Color.clear;
 
     [SerializeField]
     private OVRHand handUsedForPinchSelection;
@@ -83,8 +83,8 @@ public class EyeTrackingRay : MonoBehaviour
         lineRenderer.positionCount = 2;
         lineRenderer.startWidth = rayWidth;
         lineRenderer.endWidth = rayWidth;
-        lineRenderer.startColor = rayColorDefaultState;
-        lineRenderer.endColor = rayColorDefaultState;
+        lineRenderer.startColor = Color.clear;
+        lineRenderer.endColor = Color.clear;
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, new Vector3(transform.position.x, transform.position.y, transform.position.z + rayDistance));
     }
@@ -97,7 +97,7 @@ public class EyeTrackingRay : MonoBehaviour
 
         if (!intercepting)
         {
-            lineRenderer.startColor = lineRenderer.endColor = rayColorDefaultState;
+            lineRenderer.startColor = lineRenderer.endColor = Color.clear;
             lineRenderer.SetPosition(1, new Vector3(0, 0, transform.position.z + rayDistance));
             OnHoverEnded();
         }
@@ -160,7 +160,7 @@ public class EyeTrackingRay : MonoBehaviour
         if (intercepting)
         {
             OnHoverEnded();
-            lineRenderer.startColor = lineRenderer.endColor = rayColorHoverState;
+            lineRenderer.startColor = lineRenderer.endColor = Color.clear;
 
             if (!interactables.TryGetValue(hit.transform.gameObject.GetHashCode(), out EyeInteractable eyeInteractable))
             {

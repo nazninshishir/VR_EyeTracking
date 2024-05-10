@@ -53,6 +53,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shape5.unity
     guid: 5d07d695f37e7ac48a96160a5c382487
+  - enabled: 1
+    path: Assets/Scenes/EndMenu.unity
+    guid: d2fb2bce956f2ad498b0fa2185909375
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260,
       type: 2}
