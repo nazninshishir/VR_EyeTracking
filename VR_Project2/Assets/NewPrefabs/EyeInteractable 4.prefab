@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 279705582123943480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.821, y: 0.96, z: 1.331}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -52,8 +52,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279705582123943480}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -112,7 +112,7 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 1
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &528637094559665007
@@ -135,8 +135,8 @@ MonoBehaviour:
   OnObjectSelect:
     m_PersistentCalls:
       m_Calls: []
-  OnHoverActiveMaterial: {fileID: 2100000, guid: c852af001dae0064e9acaa832f1dadb7,
+  OnHoverActiveMaterial: {fileID: 2100000, guid: aeee7071bea0a4c478b4fea5933c5f79,
     type: 2}
-  OnSelectActiveMaterial: {fileID: 2100000, guid: 5a26de236ce89e94b963be8fa2b7ade6,
+  OnSelectActiveMaterial: {fileID: 2100000, guid: 4944e2c33c99f9f46a4796e2e746213e,
     type: 2}
-  OnIdleMaterial: {fileID: 2100000, guid: aeee7071bea0a4c478b4fea5933c5f79, type: 2}
+  OnIdleMaterial: {fileID: 2100000, guid: 4944e2c33c99f9f46a4796e2e746213e, type: 2}

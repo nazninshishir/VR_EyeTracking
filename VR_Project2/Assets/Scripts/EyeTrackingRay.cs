@@ -93,14 +93,14 @@ public class EyeTrackingRay : MonoBehaviour
     {
         lineRenderer.enabled = !IsPinching();
 
-        SelectionStarted();
-
         if (!intercepting)
         {
             lineRenderer.startColor = lineRenderer.endColor = Color.clear;
             lineRenderer.SetPosition(1, new Vector3(0, 0, transform.position.z + rayDistance));
-            OnHoverEnded();
+            
         }
+
+        SelectionStarted();
     }
     private void SelectionStarted()
     {
@@ -114,7 +114,7 @@ public class EyeTrackingRay : MonoBehaviour
                 if (interactableRigidbody != null)
                 {
                     Vector3 targetPosition = (handUsedForPinchSelection?.IsTracked ?? false)
-                        ? handUsedForPinchSelection.transform.position
+                        ? (handUsedForPinchSelection.grabPoint != null ? handUsedForPinchSelection.grabPoint.position : handUsedForPinchSelection.transform.position)
                         : transform.position;
 
                     // Calculate the direction towards the hand
@@ -122,6 +122,8 @@ public class EyeTrackingRay : MonoBehaviour
 
                     // Translate the object towards the hand
                     interactableRigidbody.transform.Translate(directionToHand, Space.World);
+
+                    
 
                     if (!isObjectMoved && interactableRigidbody.position != previousPosition)
                     {
@@ -133,7 +135,7 @@ public class EyeTrackingRay : MonoBehaviour
                 }
 
                 Transform anchorTransform = (handUsedForPinchSelection != null && handUsedForPinchSelection.IsTracked)
-                    ? handUsedForPinchSelection.transform
+                    ? handUsedForPinchSelection.grabPoint
                     : transform;
 
                 lastEyeInteractable.Select(true, anchorTransform);
@@ -144,7 +146,7 @@ public class EyeTrackingRay : MonoBehaviour
         {
             isObjectMoved = false;
             lastEyeInteractable?.Select(false);
-            interactables.Clear();
+            
         }
     }
 
@@ -154,25 +156,21 @@ public class EyeTrackingRay : MonoBehaviour
         if (IsPinching()) return;
 
         Vector3 rayDirection = transform.TransformDirection(Vector3.forward) * rayDistance;
-
         intercepting = Physics.Raycast(transform.position, rayDirection, out RaycastHit hit, Mathf.Infinity, layersToInclude);
 
         if (intercepting)
         {
-            OnHoverEnded();
-            lineRenderer.startColor = lineRenderer.endColor = Color.clear;
+            EyeInteractable eyeInteractable = hit.transform.GetComponent<EyeInteractable>();
 
-            if (!interactables.TryGetValue(hit.transform.gameObject.GetHashCode(), out EyeInteractable eyeInteractable))
+            if (eyeInteractable != null && lastEyeInteractable != eyeInteractable)
             {
-                eyeInteractable = hit.transform.GetComponent<EyeInteractable>();
-                interactables.Add(hit.transform.gameObject.GetHashCode(), eyeInteractable);
+                lastEyeInteractable?.Hover(false); // Reset the last hovered object
+                lastEyeInteractable = eyeInteractable;
+                lastEyeInteractable.Hover(true);  // Set the new object as hovered
             }
 
-            var toLocalSpace = transform.InverseTransformPoint(eyeInteractable.transform.position);
+            var toLocalSpace = transform.InverseTransformPoint(hit.point);
             lineRenderer.SetPosition(1, new Vector3(0, 0, toLocalSpace.z));
-
-            eyeInteractable.Hover(true);
-            lastEyeInteractable = eyeInteractable;
         }
     }
 
@@ -206,7 +204,11 @@ public class EyeTrackingRay : MonoBehaviour
     }
     private void OnHoverEnded()
     {
-        foreach (var interactable in interactables) interactable.Value.Hover(false);
+        if (lastEyeInteractable != null)
+        {
+            lastEyeInteractable.Hover(false);
+            lastEyeInteractable = null;
+        }
     }
     private void OnDestroy() => interactables.Clear();
 

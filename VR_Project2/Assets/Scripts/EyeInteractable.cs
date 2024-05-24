@@ -47,7 +47,7 @@ public class EyeInteractable : MonoBehaviour
     private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
-        
+
         originalAnchor = transform.parent;
 
     }
@@ -67,25 +67,19 @@ public class EyeInteractable : MonoBehaviour
 
     private void Update()
     {
-        if (IsHovered)
-        {
-
-            OnObjectHover?.Invoke(gameObject);
-            meshRenderer.material = OnHoverActiveMaterial;
-            
-
-        }
         if (IsSelected)
         {
             OnObjectSelect?.Invoke(gameObject);
             meshRenderer.material = OnSelectActiveMaterial;
-            
         }
-        if (!IsHovered && !IsSelected)
+        else if (IsHovered)
         {
-
+            OnObjectHover?.Invoke(gameObject);
+            meshRenderer.material = OnHoverActiveMaterial;
+        }
+        else
+        {
             meshRenderer.material = OnIdleMaterial;
-            
         }
 
     }

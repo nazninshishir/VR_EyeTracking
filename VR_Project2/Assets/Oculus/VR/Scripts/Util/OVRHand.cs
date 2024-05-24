@@ -55,6 +55,8 @@ public class OVRHand : MonoBehaviour,
     [SerializeField]
     private Hand HandType = Hand.None;
 
+    public Transform grabPoint;
+
     internal void SetHandType(Hand type)
     {
         HandType = type;
