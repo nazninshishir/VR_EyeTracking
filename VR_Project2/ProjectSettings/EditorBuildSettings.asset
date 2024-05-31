@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 1e4494172e2546e42846e45b41892a0a
   - enabled: 1
+    path: Assets/Scenes/Practice.unity
+    guid: f1f52a37726538f4f856010fae4cffbd
+  - enabled: 1
     path: Assets/Scenes/Color1.unity
     guid: e4014c6a81f7a84428f311002b087163
   - enabled: 1

@@ -576,6 +576,7 @@
 "Assets/Scripts/EyeTrackingRay.cs"
 "Assets/Scripts/HandTrackingUI.cs"
 "Assets/Scripts/MenuController.cs"
+"Assets/Scripts/Practice.cs"
 "Assets/Scripts/Shape1.cs"
 "Assets/Scripts/Shape2.cs"
 "Assets/Scripts/Shape3.cs"

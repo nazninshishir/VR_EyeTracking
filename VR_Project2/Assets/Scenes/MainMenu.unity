@@ -632,7 +632,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1133561212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c9f296f83901c84e8bb59c37d66eca6, type: 3}
+  m_Script: {fileID: 11500000, guid: 6df242279b4d0e545b6b930aaa24eb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1200504669 stripped
@@ -782,6 +782,21 @@ PrefabInstance:
       propertyPath: _interactors.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4919022601411988887, guid: d93b7e04b48cd7b4fa849695dba2ce9c,
+        type: 3}
+      propertyPath: requestEyeTrackingPermissionOnStartup
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919022601411988887, guid: d93b7e04b48cd7b4fa849695dba2ce9c,
+        type: 3}
+      propertyPath: requestBodyTrackingPermissionOnStartup
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4919022601411988887, guid: d93b7e04b48cd7b4fa849695dba2ce9c,
+        type: 3}
+      propertyPath: requestFaceTrackingPermissionOnStartup
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5507516794983821682, guid: d93b7e04b48cd7b4fa849695dba2ce9c,
         type: 3}
       propertyPath: _interactors.Array.size
@@ -897,6 +912,11 @@ PrefabInstance:
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 430955385291260494, guid: dcefd30573c1e2141873940c04e20179,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -20
+      objectReference: {fileID: 0}
     - target: {fileID: 713704074987961807, guid: dcefd30573c1e2141873940c04e20179,
         type: 3}
       propertyPath: m_Text
@@ -905,8 +925,10 @@ PrefabInstance:
         color, size, and shapes of objects. Each types of environment have five different
         sub tasks.\n You will be required to select and grab specific object in each
         scene as per the instruction. Use your eye tracking to select the object.
-        Once selected the object should turn white. After selecting, use your bare
-        hand grab posture to grab it.\nWhenever you are prepared for the test let
+        Once selected a message \"SELECTED\" would appear on top of the object. After
+        selecting, use your bare hand grab posture to grab it.\nBefore starting the
+        actual task you will be taken to a practice task. Take your time to become
+        familiar with the interaction.\nWhenever you are prepared for the test let
         the assistant know it."
       objectReference: {fileID: 0}
     - target: {fileID: 713704074987961807, guid: dcefd30573c1e2141873940c04e20179,
@@ -972,7 +994,7 @@ PrefabInstance:
     - target: {fileID: 5293402483579417831, guid: dcefd30573c1e2141873940c04e20179,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -283
+      value: -328
       objectReference: {fileID: 0}
     - target: {fileID: 6308007662907262637, guid: dcefd30573c1e2141873940c04e20179,
         type: 3}
@@ -1086,13 +1108,23 @@ PrefabInstance:
       objectReference: {fileID: 897804801}
     - target: {fileID: 7304131524880532411, guid: dcefd30573c1e2141873940c04e20179,
         type: 3}
-      propertyPath: m_SizeDelta.y
+      propertyPath: m_SizeDelta.x
       value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 7304131524880532411, guid: dcefd30573c1e2141873940c04e20179,
         type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 645.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7304131524880532411, guid: dcefd30573c1e2141873940c04e20179,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7304131524880532411, guid: dcefd30573c1e2141873940c04e20179,
+        type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 93
+      value: 104
       objectReference: {fileID: 0}
     - target: {fileID: 8452508975296200144, guid: dcefd30573c1e2141873940c04e20179,
         type: 3}

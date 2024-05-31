@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -37,6 +38,8 @@ public class EyeInteractable : MonoBehaviour
 
     private Transform originalAnchor;
 
+    private TextMeshPro statusText;
+
 
 
     public string ObjectName
@@ -47,7 +50,7 @@ public class EyeInteractable : MonoBehaviour
     private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
-
+        statusText = GetComponentInChildren<TextMeshPro>();
         originalAnchor = transform.parent;
 
     }
@@ -71,16 +74,19 @@ public class EyeInteractable : MonoBehaviour
         {
             OnObjectSelect?.Invoke(gameObject);
             meshRenderer.material = OnSelectActiveMaterial;
+            statusText.text = "";
         }
         else if (IsHovered)
         {
             OnObjectHover?.Invoke(gameObject);
             meshRenderer.material = OnHoverActiveMaterial;
+            statusText.text = $"<color=\"yellow\">SELECTED</color>";
         }
         else
         {
             meshRenderer.material = OnIdleMaterial;
+            statusText.text = "";
         }
-
+        
     }
 }
