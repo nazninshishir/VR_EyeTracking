@@ -60,6 +60,7 @@ public class EyeTrackingRay : MonoBehaviour
         allowPinchSelection = handUsedForPinchSelection != null;
         SetupRay();
         previousPosition = Vector3.zero;
+        sceneStartTime = Time.time;
 
 
 
@@ -122,16 +123,18 @@ public class EyeTrackingRay : MonoBehaviour
 
                     // Translate the object towards the hand
                     interactableRigidbody.transform.Translate(directionToHand, Space.World);
-
                     
+
 
                     if (!isObjectMoved && interactableRigidbody.position != previousPosition)
                     {
-                        grabTime = Time.time;
-                        RecordGrabbedObject(lastEyeInteractable.gameObject.name, grabTime);
+                        
                         isObjectMoved = true; // Set the flag to indicate the object has moved
+                        grabTime = Time.time - sceneStartTime;
+                        RecordGrabbedObject(lastEyeInteractable.gameObject.name, grabTime);
                     }
                     previousPosition = interactableRigidbody.position;
+                    
                 }
 
                 Transform anchorTransform = (handUsedForPinchSelection != null && handUsedForPinchSelection.IsTracked)
@@ -212,5 +215,5 @@ public class EyeTrackingRay : MonoBehaviour
     }
     private void OnDestroy() => interactables.Clear();
 
-    private bool IsPinching() => (allowPinchSelection && handUsedForPinchSelection.GetFingerIsPinching(OVRHand.HandFinger.Index) && handUsedForPinchSelection.GetFingerPinchStrength(OVRHand.HandFinger.Index) > 0.5f);
+    private bool IsPinching() => (allowPinchSelection && handUsedForPinchSelection.GetFingerIsPinching(OVRHand.HandFinger.Index) && handUsedForPinchSelection.GetFingerPinchStrength(OVRHand.HandFinger.Index) > 0.4f);
 }

@@ -79,6 +79,7 @@ public class OVRHand : MonoBehaviour,
     public float HandScale { get; private set; }
     public TrackingConfidence HandConfidence { get; private set; }
     public bool IsDominantHand { get; private set; }
+    
 
     private void Awake()
     {

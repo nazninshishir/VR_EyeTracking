@@ -1,6 +1,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using System.IO;
+using UnityEngine.SceneManagement;
 
 
 [RequireComponent(typeof(Collider))]
@@ -40,6 +42,9 @@ public class EyeInteractable : MonoBehaviour
 
     private TextMeshPro statusText;
 
+    private float hoverStartTime = 0f;
+    private float sceneStartTime = 0f;
+
 
 
     public string ObjectName
@@ -52,12 +57,25 @@ public class EyeInteractable : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
         statusText = GetComponentInChildren<TextMeshPro>();
         originalAnchor = transform.parent;
+      
+        sceneStartTime = Time.time;
 
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        hoverStartTime = 0f;
+        sceneStartTime = Time.time;// Reset hover start time when a new scene is loaded
     }
 
     public void Hover(bool state)
     {
         IsHovered = state;
+        if (IsHovered)
+        {
+            hoverStartTime = Time.time-sceneStartTime;
+            SaveHoverStartTimeToFile();
+        }
+        
     }
 
     public void Select(bool state, Transform anchor = null)
@@ -67,7 +85,7 @@ public class EyeInteractable : MonoBehaviour
         if (!IsSelected) transform.SetParent(originalAnchor);
     }
 
-
+    
     private void Update()
     {
         if (IsSelected)
@@ -81,6 +99,7 @@ public class EyeInteractable : MonoBehaviour
             OnObjectHover?.Invoke(gameObject);
             meshRenderer.material = OnHoverActiveMaterial;
             statusText.text = $"<color=\"yellow\">SELECTED</color>";
+
         }
         else
         {
@@ -88,5 +107,35 @@ public class EyeInteractable : MonoBehaviour
             statusText.text = "";
         }
         
+    }
+    private void SaveHoverStartTimeToFile()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        string data = $"{sceneName},{ObjectName},{hoverStartTime:F2}";
+
+        string filePath = Path.Combine(Application.persistentDataPath, $"{sceneName}_hover_start_times.txt");
+
+        if (!File.Exists(filePath))
+        {
+            using (StreamWriter writer = File.CreateText(filePath))
+            {
+                writer.WriteLine("Scene Name,Object Name,Hover Start Time (s)");
+            }
+        }
+
+        using (StreamWriter writer = File.AppendText(filePath))
+        {
+            writer.WriteLine(data);
+        }
+
+        Debug.Log($"Hover start time for {ObjectName} recorded at {hoverStartTime:F2} seconds. Data saved to file.");
+    }
+    public float GetHoverStartTime()
+    {
+        return hoverStartTime;
+    }
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }
