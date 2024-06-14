@@ -1846,8 +1846,13 @@ PrefabInstance:
       propertyPath: m_Text
       value: 'SIZE TASK 4
 
-        Use your eye raycast to select cube 2. After selecting,
-        use your bare hand grab posture to grab it.'
+
+        Grab cube number "5". '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293402483579417831, guid: dcefd30573c1e2141873940c04e20179,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -268
       objectReference: {fileID: 0}
     - target: {fileID: 6179832380596640017, guid: dcefd30573c1e2141873940c04e20179,
         type: 3}
@@ -2013,6 +2018,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0.853
+      objectReference: {fileID: 0}
+    - target: {fileID: 7304131524880532411, guid: dcefd30573c1e2141873940c04e20179,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7304131524880532411, guid: dcefd30573c1e2141873940c04e20179,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 114
       objectReference: {fileID: 0}
     - target: {fileID: 8452508975296200144, guid: dcefd30573c1e2141873940c04e20179,
         type: 3}
@@ -2723,7 +2738,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2074245186}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.104, y: 0, z: 0.0056}
+  m_LocalPosition: {x: -0.1158, y: -0.0846, z: -0.0171}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

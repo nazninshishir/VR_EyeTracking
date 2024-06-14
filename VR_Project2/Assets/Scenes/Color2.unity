@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.8396226, g: 0.82774115, b: 0.82774115, a: 1}
+  m_SubtractiveShadowColor: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 34b43d94c855d49e491abad836c56a32, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
@@ -421,13 +421,18 @@ PrefabInstance:
       propertyPath: m_Text
       value: 'COLOR TASK 2
 
-        Use your eye tracking raycast to select the "BLUE"
-        cube. After selecting, use your bare hand grab posture to grab it.'
+
+        Grab the "BLUE" cube.'
       objectReference: {fileID: 0}
     - target: {fileID: 3401342830462623255, guid: dcefd30573c1e2141873940c04e20179,
         type: 3}
       propertyPath: m_Name
       value: Menu Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293402483579417831, guid: dcefd30573c1e2141873940c04e20179,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -227
       objectReference: {fileID: 0}
     - target: {fileID: 6308007662907262637, guid: dcefd30573c1e2141873940c04e20179,
         type: 3}
@@ -539,6 +544,16 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1963744273}
+    - target: {fileID: 7304131524880532411, guid: dcefd30573c1e2141873940c04e20179,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 7304131524880532411, guid: dcefd30573c1e2141873940c04e20179,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 84
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcefd30573c1e2141873940c04e20179, type: 3}
 --- !u!1 &705507993
@@ -708,7 +723,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308395875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1072, y: 0.0296, z: -0.0225}
+  m_LocalPosition: {x: -0.1158, y: -0.0846, z: -0.0171}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1377,7 +1392,7 @@ PrefabInstance:
     - target: {fileID: 2480799093865642315, guid: d56ab4d30c23460488b8afded8daf8ce,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.76
+      value: -1.81
       objectReference: {fileID: 0}
     - target: {fileID: 2480799093865642315, guid: d56ab4d30c23460488b8afded8daf8ce,
         type: 3}
@@ -1387,7 +1402,7 @@ PrefabInstance:
     - target: {fileID: 2480799093865642315, guid: d56ab4d30c23460488b8afded8daf8ce,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.93
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 2480799093865642315, guid: d56ab4d30c23460488b8afded8daf8ce,
         type: 3}
@@ -1434,6 +1449,11 @@ PrefabInstance:
       propertyPath: OnHoverActiveMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 5e148de6cdf2d164aa3e3f90ce8c852c, type: 2}
+    - target: {fileID: 6335180270225822865, guid: d56ab4d30c23460488b8afded8daf8ce,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b905f60df09c8245b6e0d5af2e04c7f, type: 2}
     - target: {fileID: 6994070803130115870, guid: d56ab4d30c23460488b8afded8daf8ce,
         type: 3}
       propertyPath: m_LocalPosition.z

@@ -197,6 +197,11 @@ PrefabInstance:
       propertyPath: OnHoverActiveMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 5e148de6cdf2d164aa3e3f90ce8c852c, type: 2}
+    - target: {fileID: 6335180270225822865, guid: d56ab4d30c23460488b8afded8daf8ce,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b905f60df09c8245b6e0d5af2e04c7f, type: 2}
     - target: {fileID: 6994070803130115870, guid: d56ab4d30c23460488b8afded8daf8ce,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -535,14 +540,24 @@ PrefabInstance:
       propertyPath: m_Text
       value: 'PRACTICE TASK
 
-        Use your eye tracking raycast to select any
-        cube. After selecting, use your bare hand grab posture to grab it. Practice
-        this task as many times as you want.'
+
+        Use your eye tracking to select any cube. Once
+        selected a message "SELECTED" would appear on the top of the cube.After selecting,
+        use your bare hand grab posture to grab it. Practice this task as many times
+        as you want.
+
+        Let the assistant know when you are ready for the main
+        task.'
       objectReference: {fileID: 0}
     - target: {fileID: 3401342830462623255, guid: dcefd30573c1e2141873940c04e20179,
         type: 3}
       propertyPath: m_Name
       value: Menu Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293402483579417831, guid: dcefd30573c1e2141873940c04e20179,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -203
       objectReference: {fileID: 0}
     - target: {fileID: 6308007662907262637, guid: dcefd30573c1e2141873940c04e20179,
         type: 3}
@@ -654,6 +669,16 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1963744273}
+    - target: {fileID: 7304131524880532411, guid: dcefd30573c1e2141873940c04e20179,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 7304131524880532411, guid: dcefd30573c1e2141873940c04e20179,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 117
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcefd30573c1e2141873940c04e20179, type: 3}
 --- !u!1001 &554110936
@@ -1112,7 +1137,7 @@ PrefabInstance:
     - target: {fileID: 5982291183671342954, guid: 5fa33d171fcb13945bb8197fe1cd227a,
         type: 3}
       propertyPath: m_Name
-      value: Red (1)
+      value: Brown
       objectReference: {fileID: 0}
     - target: {fileID: 6319377378746153533, guid: 5fa33d171fcb13945bb8197fe1cd227a,
         type: 3}
@@ -1155,7 +1180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308395875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1072, y: 0.0296, z: -0.0225}
+  m_LocalPosition: {x: -0.1158, y: -0.0846, z: -0.0171}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1383,7 +1408,7 @@ PrefabInstance:
     - target: {fileID: 279705582123943480, guid: dc54c5a8fd2f0f649b8c4993ac856b40,
         type: 3}
       propertyPath: m_Name
-      value: Pink (1)
+      value: Olive
       objectReference: {fileID: 0}
     - target: {fileID: 528637094559665007, guid: dc54c5a8fd2f0f649b8c4993ac856b40,
         type: 3}
@@ -1568,7 +1593,7 @@ PrefabInstance:
     - target: {fileID: 5379089944380819287, guid: d56ab4d30c23460488b8afded8daf8ce,
         type: 3}
       propertyPath: m_Name
-      value: Blue (1)
+      value: Teal
       objectReference: {fileID: 0}
     - target: {fileID: 5625545493935426048, guid: d56ab4d30c23460488b8afded8daf8ce,
         type: 3}
@@ -1589,7 +1614,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: aeee7071bea0a4c478b4fea5933c5f79, type: 2}
+      objectReference: {fileID: 2100000, guid: cba66c276aed0874091de1c33eb3950d, type: 2}
     - target: {fileID: 6994070803130115870, guid: d56ab4d30c23460488b8afded8daf8ce,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -2083,7 +2108,7 @@ PrefabInstance:
     - target: {fileID: 7853627246640696628, guid: c3d791c991ee14b41bbcff5e2afb23ac,
         type: 3}
       propertyPath: m_Name
-      value: Green
+      value: Purple
       objectReference: {fileID: 0}
     - target: {fileID: 8192321995127873266, guid: c3d791c991ee14b41bbcff5e2afb23ac,
         type: 3}
